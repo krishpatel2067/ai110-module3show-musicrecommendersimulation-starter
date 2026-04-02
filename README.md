@@ -29,6 +29,10 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+Real-world recommenders use a hybrid model of content-based filtering and collaborative filtering since either alone isn't enough: both have their tradeoffs, so they need to work together to suggest prefereable songs to users yet also avoid filter bubbles.
+
+My recommender will solely focus on content-based filtering, scoring individual songs based on a vector of attributes, then ranking them not just based on the score, but also based on constraints to avoid boring and redundant rankings (e.g., all in the same genre). The vector of attributes will be a normalized, continuous vector of `[energy, tempo_norm, valence, danceability, acousticness]`, which will be multiplied by the weights of each attribute as well as an average vector representing user preferences. Discrete attributes like `genre` and `mood` will serve as gated weights (2 values controlled by a condition).
+
 ---
 
 ## Getting Started
