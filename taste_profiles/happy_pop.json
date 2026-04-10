@@ -1,0 +1,8 @@
+{
+  "name": "Happy Pop",
+  "description": "Upbeat pop lover who wants feel-good, danceable tracks with high energy and positive vibes.",
+  "favorite_genre": "pop",
+  "favorite_mood": "happy",
+  "target_energy": 0.85,
+  "likes_acoustic": false
+}

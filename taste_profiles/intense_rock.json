@@ -1,0 +1,8 @@
+{
+  "name": "Intense Rock",
+  "description": "High-octane rock and metal fan who wants aggressive, loud, fast music with no acoustic softness.",
+  "favorite_genre": "rock",
+  "favorite_mood": "intense",
+  "target_energy": 0.92,
+  "likes_acoustic": false
+}

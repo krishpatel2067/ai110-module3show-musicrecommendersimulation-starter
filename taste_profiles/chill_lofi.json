@@ -1,0 +1,8 @@
+{
+  "name": "Chill Lofi",
+  "description": "Study-session listener who wants low-key, mellow lofi beats to relax or concentrate without distraction.",
+  "favorite_genre": "lofi",
+  "favorite_mood": "chill",
+  "target_energy": 0.38,
+  "likes_acoustic": true
+}

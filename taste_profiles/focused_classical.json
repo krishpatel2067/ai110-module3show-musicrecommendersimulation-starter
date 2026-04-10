@@ -1,0 +1,8 @@
+{
+  "name": "Focused Classical",
+  "description": "Deep-work listener who favors quiet, acoustic classical or ambient pieces with minimal energy to stay in flow.",
+  "favorite_genre": "classical",
+  "favorite_mood": "peaceful",
+  "target_energy": 0.24,
+  "likes_acoustic": true
+}

@@ -33,6 +33,14 @@ Real-world recommenders use a hybrid model of content-based filtering and collab
 
 My recommender will solely focus on content-based filtering, scoring individual songs based on a vector of attributes, then ranking them not just based on the score, but also based on constraints to avoid boring and redundant rankings (e.g., all in the same genre). The vector of attributes will be a normalized, continuous vector of `[energy, tempo_norm, valence, danceability, acousticness]`, which will be multiplied by the weights of each attribute as well as an average vector representing user preferences. Discrete attributes like `genre` and `mood` will serve as gated weights (2 values controlled by a condition).
 
+### Algorithmic Recipe
+
+The algorithm awards a maximum of 4 points to each song to get ranked. Songs get +2 points for a genre match against a user's taste profile. They get +1 point for a mood match, and they get a continuous additional 0-1 score for energy similarity. Then, the algorithm ranks the songs in descending order by score, returning the top `k` results.
+
+### Potential Biases
+
+This system may be too simple, focusing only on three features. Perhaps it will lead to many songs having the same or very similar scores. Plus, the recommender might recommend very similar songs, sacrificing diversity and freshness.
+
 ---
 
 ## Getting Started
