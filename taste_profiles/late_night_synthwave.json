@@ -4,5 +4,8 @@
   "favorite_genre": "synthwave",
   "favorite_mood": "moody",
   "target_energy": 0.78,
-  "likes_acoustic": false
+  "target_valence": 0.45,
+  "target_danceability": 0.75,
+  "target_acousticness": 0.15,
+  "target_tempo_bpm": 115
 }

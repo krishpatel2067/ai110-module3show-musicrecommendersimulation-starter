@@ -4,5 +4,8 @@
   "favorite_genre": "hip-hop",
   "favorite_mood": "happy",
   "target_energy": 0.88,
-  "likes_acoustic": false
+  "target_valence": 0.80,
+  "target_danceability": 0.88,
+  "target_acousticness": 0.12,
+  "target_tempo_bpm": 98
 }

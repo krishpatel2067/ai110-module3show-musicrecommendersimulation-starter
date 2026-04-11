@@ -4,5 +4,8 @@
   "favorite_genre": "classical",
   "favorite_mood": "peaceful",
   "target_energy": 0.24,
-  "likes_acoustic": true
+  "target_valence": 0.66,
+  "target_danceability": 0.25,
+  "target_acousticness": 0.92,
+  "target_tempo_bpm": 60
 }

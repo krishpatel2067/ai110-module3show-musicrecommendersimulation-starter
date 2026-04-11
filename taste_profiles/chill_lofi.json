@@ -4,5 +4,8 @@
   "favorite_genre": "lofi",
   "favorite_mood": "chill",
   "target_energy": 0.38,
-  "likes_acoustic": true
+  "target_valence": 0.58,
+  "target_danceability": 0.60,
+  "target_acousticness": 0.78,
+  "target_tempo_bpm": 76
 }

@@ -246,9 +246,7 @@ class Recommender:
         return round(score, 4)
 
     def recommend(self, user: UserProfile, k: int = 5) -> List[Song]:
-        scored = [(song, self._score(song, user)) for song in self.songs]
-        scored.sort(key=lambda x: x[1], reverse=True)
-        return [song for song, _ in scored[:k]]
+        return sorted(self.songs, key=lambda song: self._score(song, user), reverse=True)[:k]
 
     def explain_recommendation(self, song: Song, user: UserProfile) -> str:
         """

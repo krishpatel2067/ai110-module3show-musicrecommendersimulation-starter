@@ -41,6 +41,12 @@ The algorithm awards a maximum of 4 points to each song to get ranked. Songs get
 
 This system may be too simple, focusing only on three features. Perhaps it will lead to many songs having the same or very similar scores. Plus, the recommender might recommend very similar songs, sacrificing diversity and freshness.
 
+## Images
+
+Recommendations with explanations:
+
+![Song recommendations with explanations](./readme_imgs/recs.png)
+
 ---
 
 ## Getting Started

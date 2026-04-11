@@ -4,5 +4,8 @@
   "favorite_genre": "rock",
   "favorite_mood": "intense",
   "target_energy": 0.92,
-  "likes_acoustic": false
+  "target_valence": 0.40,
+  "target_danceability": 0.60,
+  "target_acousticness": 0.08,
+  "target_tempo_bpm": 155
 }

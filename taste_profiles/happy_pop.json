@@ -4,5 +4,8 @@
   "favorite_genre": "pop",
   "favorite_mood": "happy",
   "target_energy": 0.85,
-  "likes_acoustic": false
+  "target_valence": 0.82,
+  "target_danceability": 0.80,
+  "target_acousticness": 0.15,
+  "target_tempo_bpm": 120
 }
