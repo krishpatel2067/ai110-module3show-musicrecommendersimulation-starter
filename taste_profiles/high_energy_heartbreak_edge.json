@@ -1,0 +1,11 @@
+{
+  "name": "High Energy Heartbreak (Edge)",
+  "description": "Wants intense, driving energy but a deeply sad and dark emotional tone. Tests whether high energy and very low valence pull recommendations in opposite directions, and whether the genre bonus for blues overrides a better cosine match in metal or electronic.",
+  "favorite_genre": "blues",
+  "favorite_mood": "melancholic",
+  "target_energy": 0.92,
+  "target_valence": 0.15,
+  "target_danceability": 0.50,
+  "target_acousticness": 0.20,
+  "target_tempo_bpm": 155
+}

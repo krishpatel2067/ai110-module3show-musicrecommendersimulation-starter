@@ -1,45 +1,51 @@
 ```mermaid
 flowchart TD
-    CSV["📄 data/songs.csv"]
-    PROFILE["📋 taste_profiles/*.json"]
+    CSV["data/songs.csv"]
+    PROFILES["taste_profiles/*.json"]
 
-    LOAD["load_songs()\nParse each row into a song dict\nwith typed fields"]
-    USER["UserProfile\nfavorite_genre, favorite_mood\ntarget_energy, likes_acoustic"]
+    LOAD["load_songs()\nParse rows into typed song dicts"]
+    LOAD_PROFILES["load_taste_profiles()\nIndex profiles by name"]
+    USER["UserProfile\nfavorite_genre, favorite_mood\ntarget_energy, target_valence\ntarget_danceability, target_acousticness\ntarget_tempo_bpm"]
 
+    REC["Recommender(songs)\nCompute tempo_min, tempo_max from catalog"]
     LOOP["For each song in the catalog"]
+    VEC["Build 5D feature vectors\nenergy, valence, danceability, acousticness, tempo_norm"]
+    COSINE["cosine_similarity(song_vec, user_vec)\ndot product divided by product of magnitudes"]
 
-    GENRE{"song.genre ==\nuser.favorite_genre?"}
-    MOOD{"song.mood ==\nuser.favorite_mood?"}
-    ENERGY["energy_sim =\n1.0 − |song.energy − target_energy|"]
+    GENRE{"song.genre ==\nfavorite_genre?"}
+    MOOD{"song.mood ==\nfavorite_mood?"}
 
-    G_YES["+2.0 pts"]
-    G_NO["+0.0 pts"]
-    M_YES["+1.0 pts"]
-    M_NO["+0.0 pts"]
+    G_YES["+0.15 genre bonus"]
+    G_NO["+0.00"]
+    M_YES["+0.10 mood bonus"]
+    M_NO["+0.00"]
 
-    SUM["Total score\n(max 4.0)"]
-    SCORED["Scored song list\n[(song, score, explanation), ...]"]
-    SORT["Sort by score descending"]
-    TOPK["Return top k songs"]
+    SUM["Total score, max 1.25"]
+    SORT["Sort by score descending\nReturn top k songs"]
+    EXPLAIN["explain_recommendation(song, user)\nPer-feature delta and match quality\nCategorical bonus breakdown"]
+    TABLE["Summary table\nrank, title, artist, score, highlights"]
+    DETAIL["Detailed per-feature explanations"]
 
     CSV --> LOAD
-    PROFILE --> USER
-    LOAD --> LOOP
-    USER --> LOOP
+    PROFILES --> LOAD_PROFILES
+    LOAD_PROFILES --> USER
+    LOAD --> REC
+    USER --> REC
 
-    LOOP --> GENRE
+    REC --> LOOP
+    LOOP --> VEC
+    VEC --> COSINE
+    COSINE --> GENRE
     GENRE -- Yes --> G_YES
     GENRE -- No  --> G_NO
     G_YES --> MOOD
     G_NO  --> MOOD
-
     MOOD -- Yes --> M_YES
     MOOD -- No  --> M_NO
-    M_YES --> ENERGY
-    M_NO  --> ENERGY
-
-    ENERGY --> SUM
-    SUM --> SCORED
-    SCORED --> SORT
-    SORT --> TOPK
+    M_YES --> SUM
+    M_NO  --> SUM
+    SUM --> SORT
+    SORT --> EXPLAIN
+    EXPLAIN --> TABLE
+    EXPLAIN --> DETAIL
 ```

@@ -43,9 +43,40 @@ This system may be too simple, focusing only on three features. Perhaps it will 
 
 ## Images
 
-Recommendations with explanations:
+### Recommendations with Explanations
 
-![Song recommendations with explanations](./readme_imgs/recs.png)
+![Song recommendations with short explanations](./readme_imgs/focused_classical-1.png)
+![Long explanations for song recommendations](./readme_imgs/focused_classical-2.png)
+
+## User Profile: Focused Classical
+
+![Song recommendations with short explanations](./readme_imgs/focused_classical-1.png)
+![Long explanations for song recommendations](./readme_imgs/focused_classical-2.png)
+
+## User Profile: Chill Lofi
+
+![Song recommendations with short explanations](./readme_imgs/chill_lofi-1.png)
+![Long explanations for song recommendations](./readme_imgs/chill_lofi-2.png)
+
+## User Profile: Happy Pop
+
+![Song recommendations with short explanations](./readme_imgs/happy_pop-1.png)
+![Long explanations for song recommendations](./readme_imgs/happy_pop-2.png)
+
+## Edge User Profile: High Energy Heartbreak
+
+![Song recommendations with short explanations](./readme_imgs/high_energy_heartbreak_edge-1.png)
+![Long explanations for song recommendations](./readme_imgs/high_energy_heartbreak_edge-2.png)
+
+## Edge User Profile: Acoustic Dance Floor
+
+![Song recommendations with short explanations](./readme_imgs/acoustic_dance_floor_edge-1.png)
+![Long explanations for song recommendations](./readme_imgs/acoustic_dance_floor_edge-2.png)
+
+## Edge User Profile: Calm Metal
+
+![Song recommendations with short explanations](./readme_imgs/calm_metal_edge-1.png)
+![Long explanations for song recommendations](./readme_imgs/calm_metal_edge-2.png)
 
 ---
 

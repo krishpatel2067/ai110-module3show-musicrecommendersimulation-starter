@@ -1,0 +1,11 @@
+{
+  "name": "Calm Metal Fan (Edge)",
+  "description": "Has metal as a favorite genre but otherwise wants the calmest, most acoustic, lowest-energy music possible. Directly pits the genre bonus against the cosine signal — the only metal song in the catalog (Deep End) is the polar opposite of this user's numeric targets.",
+  "favorite_genre": "metal",
+  "favorite_mood": "peaceful",
+  "target_energy": 0.22,
+  "target_valence": 0.68,
+  "target_danceability": 0.22,
+  "target_acousticness": 0.92,
+  "target_tempo_bpm": 60
+}

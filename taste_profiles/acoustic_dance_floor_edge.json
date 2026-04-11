@@ -1,0 +1,11 @@
+{
+  "name": "Acoustic Dance Floor (Edge)",
+  "description": "Craves highly acoustic, organic-sounding music that is also intensely danceable — a combination that rarely exists in practice. Forces the system to find an uncomfortable compromise, as the most acoustic songs have low danceability and vice versa.",
+  "favorite_genre": "folk",
+  "favorite_mood": "happy",
+  "target_energy": 0.65,
+  "target_valence": 0.78,
+  "target_danceability": 0.88,
+  "target_acousticness": 0.90,
+  "target_tempo_bpm": 98
+}

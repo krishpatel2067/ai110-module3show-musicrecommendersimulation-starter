@@ -2,8 +2,7 @@
 
 ## 1. Model Name  
 
-Give your model a short, descriptive name.  
-Example: **VibeFinder 1.0**  
+**MusicMatcher 1.0**  
 
 ---
 
@@ -70,6 +69,8 @@ Prompts:
 - Cases where the system overfits to one preference  
 - Ways the scoring might unintentionally favor some users  
 
+The recommender considers every sensible feature, leaving out only `id`, `title`, and `artist` since they are not relevant features to scoring and recommending. Most of the genres are underreprented, such as `jazz` and `r&b`, since the dataset only has 20 songs distributes across many genres. There are also several, though fewer, underrepresented moods, such as `melancholic` and `peaceful`, again suffering from the small dataset size. The recommender places heavy emphasis on genre and mood matching, which sometimes causes songs to be propped up in the top `k` solely due to this, overpowering the numeric (`energy`, `tempo_bpm`, `valence`, `danceability`, and `acousticness`), which is especially evident in the edge case taste profiles. The recommender also favors users with "standard" preferences, such as liking `pop`, `happy`, and low `accousticness` together. Users such as those represented by the edge case test profiles may find that the recommender does not work as well for them.
+
 ---
 
 ## 7. Evaluation  
@@ -84,6 +85,29 @@ Prompts:
 - Any simple tests or comparisons you ran  
 
 No need for numeric metrics unless you created some.
+
+I tested 6 user profiles, 3 of them standard:
+
+* Happy Pop
+* Chill LoFi
+* Focused Classical
+
+And 3 of them edge cases:
+
+* Acoustic Dance Floor
+* Calm Metal
+* High Energy Heartbreak
+
+**Happy Pop and Acoustic Dance Floor**: The Happy Pop profile prefers less acoustic, higher BPM, and slightly higher energy songs than the Acoustic Dance Floor profile. However, the twist is that both prefer high valence and high danceability.
+
+**Chill Lofi and Calm Metal**: Both profiles prefer low energy, medium tempo, and medium valence. The Calm Metal profile prefers higher acousticness than the Chill Lofi profile.
+
+**Focused Classical and High Energy Heartbreak**: These are almost polar opposites. The High Energy Heartbreak profile prefers much higher BPM, lower acousticness, higher danceability, much lower valence, and much higher energy than the Focused Classical profile. 
+
+I'm surprised by the fact that even though the Chill Lofi and Calm Metal profiles have similar preferences, only one song is in both of their top 5 recommended songs. This outlines that the genre and mood heavily distinguishes the makeup of the recommendation lists.
+
+A simple test I can is toggling off mood matching, which caused the song Rooftop Lights to disappear from the Acoustic Dance Floor profile's recommendations, revealing that mood matching alone was propping up the song even if the numeric matching was weak.
+
 
 ---
 

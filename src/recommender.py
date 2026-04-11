@@ -178,7 +178,7 @@ def _build_explanation(
         label_str = f" — {label}" if label else ""
         lines.append(
             f"  {name:<14}: {quality:<20}"
-            f" (you want {user_val:.2f}, song has {song_val:.2f}, Δ={delta:.2f}){label_str}"
+            f" (song has {song_val:.2f}, Δ={delta:.2f}){label_str}"
         )
 
     # Tempo delta is derived from the pre-normalized vector entries (index 4),
@@ -186,25 +186,18 @@ def _build_explanation(
     tempo_delta_norm = abs(song_vec[4] - user_vec[4])
     lines.append(
         f"  {'tempo':<14}: {_match_quality(tempo_delta_norm):<20}"
-        f" (you want ~{user_info['target_tempo_bpm']:.0f} BPM,"
-        f" song has {song_info['tempo_bpm']:.0f} BPM)"
+        f" (song has {song_info['tempo_bpm']:.0f} BPM)"
     )
 
     if genre_bonus:
         lines.append(f"  {'genre':<14}: exact match ({song_info['genre']}) — your favorite genre")
     else:
-        lines.append(
-            f"  {'genre':<14}: no match"
-            f" (song: {song_info['genre']}, you prefer: {user_info['favorite_genre']})"
-        )
+        lines.append(f"  {'genre':<14}: no match (song: {song_info['genre']})")
 
     if mood_bonus:
         lines.append(f"  {'mood':<14}: exact match ({song_info['mood']}) — your favorite mood")
     else:
-        lines.append(
-            f"  {'mood':<14}: no match"
-            f" (song: {song_info['mood']}, you prefer: {user_info['favorite_mood']})"
-        )
+        lines.append(f"  {'mood':<14}: no match (song: {song_info['mood']})")
 
     return "\n".join(lines)
 
