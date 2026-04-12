@@ -1,6 +1,6 @@
 # 🎵 Music Recommender Simulation
 
-Note: these responses are based on the recommender before optional extensions were added.
+Note: these responses are based on the recommender before optional extensions were added (more info below).
 
 ## Project Summary
 
@@ -256,3 +256,28 @@ A few sentences about what you learned:
 - How did building this change how you think about real music recommenders
 - Where do you think human judgment still matters, even if the model seems "smart"
 
+## Bonus Features
+
+1. 
+2. 
+3. 
+4. Tabular output
+  * The AI naturally defaulted to a tabular output created without a library.
+  * The reasons are summarized concisely in the "Highlights" column.
+  * This tabular summary is expanded upon underneath in similarly aligned format.
+
+**Prompt to Claude Code**:
+
+Now it's time to add some bonus features. Particularly:
+
+1: Add Advanced Song Features
+Introduce 5 complex attributes to the dataset that are not currently present, such as Song Popularity (0-100) or Release Decade. Modify the CSV and scoring logic as needed. Make sure to create specific math-based scoring rules for these new features -- for example, prioritizing tracks from a certain era of music.
+
+2: Create Multiple Scoring Modes
+Build two different ranking strategies (e.g., "Genre-First" or "Mood-First" )
+A user should be able to switch between these modes in main.py. Device a design pattern (like a simple "Strategy" pattern) that keeps the code modular.
+
+3: Diversity and Fairness Logic
+Implement a "Diversity Penalty" that prevents the recommender from suggesting too many songs from the same feature (such as genre) in the top results. Describe a rule to penalize a song's score if its feature (such as genre) is already present in the top recommendations list.
+
+You have some freedom in deciding the 5 additional features for (1), the two ranking strategies for (2), and the feature to penalize upon for (3). But make sure to walk me by any recommendations you make. Also, generate code in small chunks, asking for confirmation at every step instead of making sweeping changes to a file.
