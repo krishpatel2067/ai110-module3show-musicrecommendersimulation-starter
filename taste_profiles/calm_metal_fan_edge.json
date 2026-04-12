@@ -7,5 +7,10 @@
   "target_valence": 0.68,
   "target_danceability": 0.22,
   "target_acousticness": 0.92,
-  "target_tempo_bpm": 60
+  "target_tempo_bpm": 60,
+  "target_popularity": 0.44,
+  "target_liveness": 0.15,
+  "target_instrumentalness": 0.92,
+  "target_duration_sec": 360,
+  "target_decade": 1990
 }

@@ -14,6 +14,11 @@ def make_small_recommender() -> Recommender:
             valence=0.9,
             danceability=0.8,
             acousticness=0.2,
+            popularity=75,
+            release_decade=2010,
+            liveness=0.12,
+            instrumentalness=0.05,
+            duration_sec=210,
         ),
         Song(
             id=2,
@@ -26,6 +31,11 @@ def make_small_recommender() -> Recommender:
             valence=0.6,
             danceability=0.5,
             acousticness=0.9,
+            popularity=40,
+            release_decade=2020,
+            liveness=0.08,
+            instrumentalness=0.70,
+            duration_sec=180,
         ),
     ]
     return Recommender(songs)
@@ -40,6 +50,11 @@ def make_pop_user() -> UserProfile:
         target_danceability=0.80,
         target_acousticness=0.15,
         target_tempo_bpm=120,
+        target_popularity=0.75,
+        target_liveness=0.10,
+        target_instrumentalness=0.05,
+        target_duration_sec=210,
+        target_decade=2010,
     )
 
 
@@ -71,7 +86,11 @@ def test_explain_recommendation_covers_all_features():
     explanation = rec.explain_recommendation(rec.songs[0], user)
 
     assert isinstance(explanation, str)
-    for term in ("Score", "energy", "valence", "danceability", "acousticness", "tempo", "genre", "mood"):
+    for term in (
+        "Score", "energy", "valence", "danceability", "acousticness",
+        "popularity", "liveness", "instrumentalness", "tempo", "duration",
+        "genre", "mood", "release decade",
+    ):
         assert term in explanation, f"Expected '{term}' in explanation"
 
 
@@ -80,6 +99,8 @@ def test_single_song_catalog_does_not_crash():
     song = Song(
         id=1, title="Solo", artist="A", genre="pop", mood="happy",
         energy=0.8, tempo_bpm=120, valence=0.8, danceability=0.8, acousticness=0.2,
+        popularity=60, release_decade=2010, liveness=0.10, instrumentalness=0.05,
+        duration_sec=200,
     )
     rec = Recommender([song])
     results = rec.recommend(make_pop_user(), k=1)
