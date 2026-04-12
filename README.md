@@ -1,17 +1,10 @@
 # 🎵 Music Recommender Simulation
 
+Note: these responses are based on the recommender before optional extensions were added.
+
 ## Project Summary
 
-In this project you will build and explain a small music recommender system.
-
-Your goal is to:
-
-- Represent songs and a user "taste profile" as data
-- Design a scoring rule that turns that data into recommendations
-- Evaluate what your system gets right and wrong
-- Reflect on how this mirrors real world AI recommenders
-
-Replace this paragraph with your own summary of what your version does.
+This simple music recommender system recommends songs based on taste profiles of users. It considers aspects such as genre, mood, energy, danceability, etc. to score songs and eventually rank them. While the system has many limitations to address, it is a good starting point in representing how deployed recommenders can work.
 
 ---
 
@@ -123,6 +116,8 @@ Use this section to document the experiments you ran. For example:
 - What happened when you added tempo or valence to the score
 - How did your system behave for different types of users
 
+I experimented with turning off the mood matching to see how the system would behave. In short, it depended on the profile: some profiles saw no changes in recommendations (often the case for the standard profiles), and other saw drastic changes that revealed underlying limitations (often the case with edge case profiles). Further tests would have to be conducted, but this experiment revealed that the recommender may work drastically differently depending on a user's taste profile.
+
 ---
 
 ## Limitations and Risks
@@ -137,6 +132,8 @@ Examples:
 
 You will go deeper on this in your model card.
 
+The current limitations include disproportinonate weights of genre and mood compared to the numeric features, which seem to work well for some user profiles but badly for others. A potential risk of this recommender is that it will trap people in filter bubbles based on their song preferences since this recommender is very deterministic and non-random, allowing no chance for serendipity and discovery.
+
 ---
 
 ## Reflection
@@ -150,6 +147,7 @@ Write 1 to 2 paragraphs here about what you learned:
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
 
+Recommenders first have to clean raw data (energy, danceability, etc.), for example, by normalizing features to ensure fairness. Then, they numeric and categorical features have to be handled with care: numeric features may be put into a vector, but categorical features may instead have to act like discrete gates in the scoring function. Such algorithms can show bias and unfairness based on the data used to train them and the scoring function used. For example, a dataset dominated by pop songs wouldn't do justice to country lovers. Also, a naive scoring function may favor users with standard tastes such as those linking pop plus high-energy or country plus high acousticness.
 
 ---
 

@@ -16,6 +16,10 @@ Prompts:
 - What assumptions does it make about the user  
 - Is this for real users or classroom exploration  
 
+The recommender is designed to recommend songs to a given user based on their profile. In the real world, these profiles would be updated automatically as the user listens to songs, likes them, etc., but in this project, all of that is abstracted away: the recommender simply expects the user taste profile to be premade.
+
+The recommender generates top several recommendations based on a user's preferences for genre, mood, energy, etc. in a song. The recommender assumes that the user has standard taste profiles. For example, the recommender behaves well when a pop lover also loves high-energy songs, which is a pretty common pairing in the real world. This recommender is simple and is currently only for classroom exploration. It would have to be analyzed even further and improved to address biases and limitations before rolling it out to real users.
+
 ---
 
 ## 3. How the Model Works  
@@ -31,6 +35,8 @@ Prompts:
 
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
+The recommender uses all the features that can connect one song to another: genre, mood, energy, tempo, etc. All user preferences are considered in this version of the recommender: anything from genre and mood to danceability. The model first converts the numeric features into vectors, which are then passed through calculations to produce a similarity score. That similarity score then gets increased if the categorical features, such as mood and genre, match between a song and user's preferences. This is the main change from the starter logic, that did not use vectors and only had three features under consideration.
+
 ---
 
 ## 4. Data  
@@ -44,6 +50,8 @@ Prompts:
 - Did you add or remove data  
 - Are there parts of musical taste missing in the dataset  
 
+The dataset contains 20 songs currently after 10 more were generated using AI to extend the original dataset. The dataset represents a diverse range of genres and moods such as pop, synthwave, and lofi for genres and chill, moody, and happy for mood. No data was removed. The only thing I did was add more datapoints. The dataset doesn't contain genres like EDM and moods like inspirational. It also doesn't contain features such as song duration, which may very well impact preferences.
+
 ---
 
 ## 5. Strengths  
@@ -55,6 +63,8 @@ Prompts:
 - User types for which it gives reasonable results  
 - Any patterns you think your scoring captures correctly  
 - Cases where the recommendations matched your intuition  
+
+The recommender gives reasonable results if their preferences are standard and match at least some of the songs in the dataset across multiple features, for example, by associating a chill mood with low energy and high acousticness. The recommender's scoring correctly captures genres correctly many of the times because of having a higher weight than mood as well as a sizeable portion of the numeric similarity score. The recommendations matched my intutitions for profiles like Happy Pop, where the top recommendation was Sunrise City, which I expected.
 
 ---
 
@@ -122,6 +132,8 @@ Prompts:
 - Improving diversity among the top results  
 - Handling more complex user tastes  
 
+In the future, the recommender can add features like song length, popularity, etc. as well as their respective references (preferred song length, preferred affinity for currently popular songs, etc.). The recommendations can also be given in more natural language, hiding away unnecessary stats that may bore or overwhelm average users. The top results can also be made less rigid by adding some randomness into the mix, allowing users to discover songs outside of their preferences but only occasionally. The recommender can also be improved to gracefully handle nonstandard user preferences, such as one preferring high energy and high acousticness.
+
 ---
 
 ## 9. Personal Reflection  
@@ -133,3 +145,5 @@ Prompts:
 - What you learned about recommender systems  
 - Something unexpected or interesting you discovered  
 - How this changed the way you think about music recommendation apps  
+
+I learned that recommender systems don't have to be complex to begin with (mine is currently very simple). However, they can be refined with iterations over time after identifying limitations from trials. I discovered that no matter how sophisticated a recommender system gets, it is not always foolproof. And it probably does not matter that a recommender is great but not perfect because end users may see its mistakes as serendipity and a means of discovery of other tastes. This project will cause me to look at recommendation in popular streaming services through a more technical and admiring light. Previously, I used to see it as this monolithic "algorithm" in a more-or-less sinister sight. While some of those aspects remain, I will also start to appreciate the engineering and design that went into such systems.
